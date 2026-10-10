@@ -1,4 +1,4 @@
-# 🫁 Pulmonary Tuberculosis Detection System
+# 🫁 Tuberculosis Detection System
 
 An automated Computer-Aided Diagnostic (CAD) system utilizing **Transfer Learning with VGG16** and **TensorFlow** to detect Tuberculosis (TB) from chest X-ray radiographs, paired with a modern, responsive **Flask** web application.
 
@@ -31,24 +31,24 @@ An automated Computer-Aided Diagnostic (CAD) system utilizing **Transfer Learnin
 The project utilizes the benchmark **Tuberculosis (TB) Chest X-ray Database** containing **4,200 chest radiographs** (3,500 Normal and 700 TB positive).
 
 The dataset is partitioned into:
-* **Training Set (70%):** 2,939 images
+* **Training Set (70%):** 2,940 images
 * **Validation Set (15%):** 630 images
-* **Held-out Test Set (15%):** 631 images (strictly unseen)
+* **Held-out Test Set (15%):** 630 images
 
 ---
 
-## 🏆 Model Performance (On 631 Unseen Test Scans)
+## 🏆 Model Performance (On 630 Unseen Test Scans)
 
 | Evaluation Metric | Score | Clinical Relevance |
 | :--- | :--- | :--- |
-| **Overall Accuracy** | **98.57%** | 622 of 631 test images correctly diagnosed |
+| **Overall Accuracy** | **98.57%** | 621 of 630 test images correctly diagnosed |
 | **Sensitivity (Recall)** | **93.40%** | Caught 99 of 106 positive TB patients |
-| **Specificity** | **99.62%** | Cleared 523 of 525 healthy lungs |
+| **Specificity** | **99.62%** | Cleared 522 of 524 healthy lungs |
 
 ### Confusion Matrix:
 ```text
                    Predicted Normal    Predicted TB
-Actual Normal            523 (TN)            2 (FP)
+Actual Normal            522 (TN)            2 (FP)
 Actual TB                  7 (FN)           99 (TP)
 ```
 
