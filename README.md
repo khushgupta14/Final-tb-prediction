@@ -1,6 +1,10 @@
 # 🫁 Tuberculosis Detection System
 
-An automated Computer-Aided Diagnostic (CAD) system utilizing **Transfer Learning with VGG16** and **TensorFlow** to detect Tuberculosis (TB) from chest X-ray radiographs, paired with a modern, responsive **Flask** web application.
+A deep learning web application that detects Tuberculosis (TB) from chest X-rays in seconds using Transfer Learning with VGG16.
+
+Users can upload an X-ray scan through a clean and responsive Flask web interface to receive an instant diagnosis along with confidence percentages.
+
+It is designed to assist doctors and healthcare workers in fast, accessible pulmonary screening and triaging.
 
 ---
 
@@ -37,7 +41,7 @@ The dataset is partitioned into:
 
 ---
 
-## 🏆 Model Performance (On 630 Unseen Test Scans)
+## 🏆 Model Performance
 
 | Evaluation Metric | Score | Clinical Relevance |
 | :--- | :--- | :--- |
