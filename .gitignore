@@ -1,6 +1,25 @@
-﻿dataset/
-uploads/
+# Datasets (too large for Git)
+dataset/
+TB_Chest_Radiography_Database/
+
+# Python cache & artifacts
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Environments
 venv/
+env/
+ENV/
 .env
+
+# Uploads & temporary test outputs
+uploads/
+test_images.txt
+
+# OS / Editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

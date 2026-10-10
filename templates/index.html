@@ -8,116 +8,174 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f0f4f8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #eef2f5;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
         .card {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,.1);
-            padding: 40px;
-            width: 450px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 36px 32px;
+            width: 100%;
+            max-width: 440px;
             text-align: center;
         }
 
-        h1 { color: #333; margin-bottom: 8px; }
-        p.sub { color: #777; margin-bottom: 24px; font-size: 14px; }
+        h1 {
+            color: #222;
+            font-size: 26px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
 
-        /* file input */
+        p.sub {
+            color: #777;
+            margin-bottom: 24px;
+            font-size: 13.5px;
+        }
+
+        /* Upload box */
         .upload-area {
-            border: 2px dashed #ccc;
-            border-radius: 8px;
-            padding: 30px;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 24px 16px;
             cursor: pointer;
-            transition: .2s;
+            transition: all 0.2s ease;
+            background: #f8fafc;
             margin-bottom: 16px;
         }
-        .upload-area:hover { border-color: #4a90d9; }
-        .upload-area input { display: none; }
-        .upload-area span { color: #888; }
 
-        /* preview */
+        .upload-area:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .upload-area input {
+            display: none;
+        }
+
+        .upload-area span {
+            color: #64748b;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        /* Preview Image */
         #preview {
-            max-width: 200px;
-            max-height: 200px;
+            max-width: 220px;
+            max-height: 180px;
             margin: 12px auto;
             display: none;
             border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            object-fit: cover;
         }
 
-        /* button */
+        /* Predict Button */
         button {
-            background: #4a90d9;
-            color: #fff;
+            background: #3b82f6;
+            color: #ffffff;
             border: none;
-            padding: 12px 32px;
+            padding: 12px 36px;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
             margin-top: 8px;
-            transition: .2s;
+            transition: background 0.2s ease;
+            width: 100%;
+            max-width: 180px;
         }
-        button:hover { background: #357abd; }
-        button:disabled { background: #aaa; cursor: default; }
 
-        /* result section */
+        button:hover {
+            background: #2563eb;
+        }
+
+        button:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        /* Results Section */
         #result {
-            margin-top: 28px;
+            margin-top: 24px;
             display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .bar-container {
-            margin: 12px 0;
+            margin: 14px 0;
             text-align: left;
         }
+
         .bar-label {
-            font-weight: bold;
-            margin-bottom: 4px;
-            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 13.5px;
+            color: #334155;
         }
+
         .bar-bg {
-            background: #e8e8e8;
+            background: #e2e8f0;
             border-radius: 6px;
-            height: 30px;
+            height: 22px;
             overflow: hidden;
         }
+
         .bar-fill {
             height: 100%;
             border-radius: 6px;
             display: flex;
             align-items: center;
-            padding-left: 10px;
+            padding-left: 8px;
             color: #fff;
-            font-weight: bold;
-            font-size: 13px;
-            transition: width 0.6s ease;
-            min-width: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            min-width: 0;
         }
-        .bar-normal { background: #4caf50; }
-        .bar-tb     { background: #f44336; }
+
+        .bar-normal { background: #22c55e; }
+        .bar-tb     { background: #ef4444; }
 
         .verdict {
-            margin-top: 16px;
-            font-size: 18px;
-            font-weight: bold;
+            margin-top: 20px;
+            font-size: 17px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
         .loader {
             display: none;
             margin: 16px auto;
-            border: 4px solid #e8e8e8;
-            border-top: 4px solid #4a90d9;
+            border: 3.5px solid #e2e8f0;
+            border-top: 3.5px solid #3b82f6;
             border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            animation: spin .8s linear infinite;
+            width: 32px;
+            height: 32px;
+            animation: spin 0.8s linear infinite;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -132,7 +190,9 @@
 
         <img id="preview" alt="preview" />
 
-        <button id="predictBtn" disabled onclick="predict()">Predict</button>
+        <div>
+            <button id="predictBtn" disabled onclick="predict()">Predict</button>
+        </div>
         <div class="loader" id="loader"></div>
 
         <div id="result">
@@ -142,12 +202,14 @@
                     <div class="bar-fill bar-normal" id="normalBar" style="width:0%"></div>
                 </div>
             </div>
+
             <div class="bar-container">
                 <div class="bar-label">Tuberculosis: <span id="tbPct">0</span>%</div>
                 <div class="bar-bg">
                     <div class="bar-fill bar-tb" id="tbBar" style="width:0%"></div>
                 </div>
             </div>
+
             <div class="verdict" id="verdict"></div>
         </div>
     </div>
@@ -183,7 +245,10 @@
                 const res = await fetch("/predict", { method: "POST", body: fd });
                 const data = await res.json();
 
-                if (data.error) { alert(data.error); return; }
+                if (data.error) { 
+                    alert(data.error); 
+                    return; 
+                }
 
                 document.getElementById("normalPct").textContent = data.normal;
                 document.getElementById("tbPct").textContent     = data.tb;
@@ -192,16 +257,16 @@
 
                 const verdict = document.getElementById("verdict");
                 if (data.tb > 50) {
-                    verdict.textContent = "⚠️ TB Detected";
-                    verdict.style.color = "#f44336";
+                    verdict.innerHTML = "⚠️ TB Detected";
+                    verdict.style.color = "#dc2626";
                 } else {
-                    verdict.textContent = "✅ Normal";
-                    verdict.style.color = "#4caf50";
+                    verdict.innerHTML = "✅ Normal";
+                    verdict.style.color = "#16a34a";
                 }
 
                 document.getElementById("result").style.display = "block";
             } catch (e) {
-                alert("Error: " + e.message);
+                alert("Error during prediction: " + e.message);
             } finally {
                 document.getElementById("loader").style.display = "none";
                 predictBtn.disabled = false;
