@@ -1,7 +1,7 @@
 import os
 import tensorflow as tf
-from tensorflow.keras import layers, models
-from tensorflow.keras.applications import VGG16
+from keras import layers, models
+from keras.applications import VGG16
 
 # ── 1. Load Train, Val, and Test directly from folders ───
 train_ds = tf.keras.utils.image_dataset_from_directory(

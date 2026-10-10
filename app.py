@@ -3,7 +3,7 @@ import io
 import numpy as np
 from PIL import Image
 from flask import Flask, request, render_template, jsonify
-from tensorflow.keras.models import load_model
+from keras.models import load_model
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "tb_model.h5")

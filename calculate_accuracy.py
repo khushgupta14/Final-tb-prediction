@@ -1,8 +1,8 @@
 import os
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.models import load_model
-from tensorflow.keras import layers
+from keras.models import load_model
+from keras import layers
 
 # ── 1. Load Model ────────────────────────────────────────
 MODEL_PATH = "tb_model.h5"
